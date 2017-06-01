@@ -156,7 +156,7 @@ def client_sender(servers, num_messages):
         key = hashlib.sha256(random_key.encode()).digest()
         iv = Random.new().read(AES.block_size)
         AES_cipher_key = iv + AES.new(server.public_key, AES_MODE, iv).encrypt(key)
-        send_msg_to_server_async(server, AES_cipher_key)
+        send_msg_to_server_async(server, 'shared_key '+ AES_cipher_key)
 
     # Generate and onion-encrypt messages
     messages = generate_messages(num_messages)
@@ -169,7 +169,7 @@ def client_sender(servers, num_messages):
     # TODO: insert your code here!
     primary_server = [server for server in servers if server['server_id']==PRIMARY_SERVER_ID][0]
     for message_enc in messages_enc:
-        send_msg_to_server_async(primary_server, message_enc)
+        send_msg_to_server_async(primary_server, 'chat_msg_client ' + message_enc)
 
 # Client which is responsible for making the PIR
 # It should generate appropriate random masks for each server,
@@ -184,9 +184,28 @@ def client_receiver(servers, num_messages, target_msg_index):
     final_mask_str = "".join(final_mask)
     final_mask = bitarray(final_mask_str)
 
+    # Logic Description
+    # xored = ((final_mask ^ m1) ^ m2) ^ m3
+    #
+    # and back
+    # final_mask = ((xored ^ m3) ^ m2) ^ m1
+    previous_mask = final_mask
     for server in servers:
         mask_str = [str(random.randint(0,1)) for i in range(num_messages)]
-        mask = bitarray("".join(mask_str))
+        random_mask = bitarray("".join(mask_str))
+
+        mask = previous_mask ^ random_mask
+        masks.append(mask)
+
+        messages_as_bytes = send_msg_to_server(server, 'pir_req '+ mask.to01())
+
+        # TODO Not sure here
+        # we get the set of messages as bytes from different servers but frankly
+        # we dont care about all those messages where indx doesnt match
+        # I guess we need to convert message as bytes back to list of dicts [{1:'asda'}, {2:'bas'}]
+        # find our message and return (but send masks to each server nontheless)
+
+        previous_mask = mask
 
     # Return the target message (string), only the body of the message,
     # without the message index

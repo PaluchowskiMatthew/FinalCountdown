@@ -5,6 +5,8 @@ import socket
 import threading
 import binascii
 from operator import itemgetter
+from bitarray import bitarray
+from itertools import compress
 
 
 from Crypto import Random
@@ -103,7 +105,7 @@ class RiffleServer:
         else:
             sorted_servers = sorted(servers, key=itemgetter('server_id'))
             server = sorted_servers[0]
-            udp_socket.sendto(cip.encode(), (server.server_ip, server.udp_port))
+            udp_socket.sendto(('chat_msg_server' + cip).encode(), (server.server_ip, server.udp_port))
         pass
 
 
@@ -129,7 +131,7 @@ class RiffleServer:
             # TODO: insert your code here!
             #pass
             server = [server for server in self.all_servers if server['server_id'] == next_server_id][0]
-            udp_socket.sendto(cip.encode(), (server.server_ip, server.udp_port))
+            udp_socket.sendto(('chat_msg_server' + cip).encode(), (server.server_ip, server.udp_port))
         else:
 
             # TODO: insert your code here!
@@ -141,7 +143,7 @@ class RiffleServer:
             self.chat_messages[max_key] = cip
 
             for server in self.all_servers:
-                udp_socket.sendto(cip.encode(), (server.server_ip, server.udp_port))
+                udp_socket.sendto(('chat_msg_plain ' + cip).encode(), (server.server_ip, server.udp_port))
 
     # Receive the plain-text chat message. This happens when the last server
     # in the chain onion-decrypts a message from a client and thus obtains
@@ -168,7 +170,11 @@ class RiffleServer:
         result = b''
 
         # TODO: insert your code here!
+        bitmask = bitarray(bitmask)
+        bitmask_filter = bitmask.tolist()
+        selected_messages = list(compress(self.chat_messages, bitmask_filter))
 
+        result = bytes(selected_messages)
         # Please be careful here, our client expects the result as bytes
         # type(result) = <class 'bytes'> in Python3
         self.udp_socket.sendto(result, sender)
@@ -226,7 +232,7 @@ class RiffleServer:
 
             elif op_code == 'pir_req':
                 # Client sends PIR request
-                bitmask = int(message.split(' ', 1)[1])
+                bitmask = message.split(' ', 1)[1] #!! Deleted casting to int
                 self.process_pir_request(bitmask, sender)
 
             elif op_code == 'quit':
