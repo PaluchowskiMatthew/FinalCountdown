@@ -1,0 +1,4 @@
+ex1 = "7i5F2LtrzskthLD9GU6xKgx6dsi4C32a4yRM2gNN+2w="
+ex2 = "kXqzm6sQJ9V1kHM6B6cLBY1msTv9ur+955rxMOAmRXc="
+ex3 = "e/RdCcGZtu0mf4Msnx623ehYBTZaz8g6kZnMoc/YklI="
+ex4 = "hsEcnBw7NrTGIZIR+dhOqydSvbtW23wfiDm9VElFK20=“

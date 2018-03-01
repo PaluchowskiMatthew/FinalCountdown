@@ -1,0 +1,41 @@
+; "The Godfather"; 19/08/02; 5
+; "Seven Samurai"; 19/08/02; 3
+; "Pulp Fiction"; 19/08/02; 1
+; "12 Angry Men"; 19/08/02; 2
+; "Lawrence of Arabia"; 19/08/02; 2
+; "Schindler's List"; 19/08/02; 4
+; "Goodfellas"; 19/08/02; 3
+; "Spirited Away"; 19/08/02; 5
+; "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb"; 19/08/02; 3
+; "One Flew Over the Cuckoo's Nest"; 19/08/02; 3
+; "Citizen Kane"; 19/08/02; 4
+; "Vertigo"; 19/08/02; 3
+; "Rashomon"; 19/08/02; 3
+
+; "Casablanca"; 19/08/02; 5
+; "The Shawshank Redemption"; 19/08/02; 1
+; "The Third Man"; 19/08/02; 1
+; "Sunset Blvd."; 19/08/02; 4
+; "M"; 19/08/02; 2
+
+
+
+mateusz.paluchowski@epfl.ch; "The Godfather"; 19/08/02; 2
+mateusz.paluchowski@epfl.ch; "Seven Samurai"; 19/08/02; 2
+mateusz.paluchowski@epfl.ch; "Pulp Fiction"; 19/08/02; 1
+mateusz.paluchowski@epfl.ch; "12 Angry Men"; 19/08/02; 4
+mateusz.paluchowski@epfl.ch; "Lawrence of Arabia"; 19/08/02; 5
+mateusz.paluchowski@epfl.ch; "Schindler's List"; 19/08/02; 2
+mateusz.paluchowski@epfl.ch; "Goodfellas"; 19/08/02; 4
+mateusz.paluchowski@epfl.ch; "Spirited Away"; 19/08/02; 2
+mateusz.paluchowski@epfl.ch; "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb"; 19/08/02; 5
+mateusz.paluchowski@epfl.ch; "One Flew Over the Cuckoo's Nest"; 19/08/02; 5
+mateusz.paluchowski@epfl.ch; "Citizen Kane"; 19/08/02; 1
+mateusz.paluchowski@epfl.ch; "Vertigo"; 19/08/02; 3
+mateusz.paluchowski@epfl.ch; "Rashomon"; 19/08/02; 4
+
+mateusz.paluchowski@epfl.ch; "Rear Window"; 19/08/02; 4
+mateusz.paluchowski@epfl.ch; "City Lights"; 19/08/02; 4
+mateusz.paluchowski@epfl.ch; "The Good, the Bad and the Ugly"; 19/08/02; 2
+mateusz.paluchowski@epfl.ch; "The Godfather: Part II"; 19/08/02; 5
+mateusz.paluchowski@epfl.ch; "Modern Times"; 19/08/02; 4

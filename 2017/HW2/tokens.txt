@@ -1,0 +1,5 @@
+ex1 = "jsJt/Dchv8mdlemWdabpDZU+DW1fywCl6lXMJLrq7EE="
+ex2 = "5AAgnApFSz/Md4cbhP0SHUMwW115S9Sno44TQCprd5k="
+ex3 = "V22wL9PQq5LY1Jdh0SK5NQQVj1txSTPTvPCxunP2MfQ="
+ex4a = "cb/MV7bJtx1gzEBQZrOkpD+JV/iYkAR4eeVbdnWktpE="
+ex4b = "nAaMSBHe01Ixl5ahmTFBMR4tEnCF6ouplUFDjLDQ/tA="

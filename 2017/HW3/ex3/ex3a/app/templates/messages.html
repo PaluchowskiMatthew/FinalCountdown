@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+        <title>Contact form for ISP homework </title>
+        <meta name="description" content="The contact page for ISP homeworks">
+        <meta name="author" content="SuperBadDeveloper">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- css !!-->
+        <link rel="stylesheet" href={{ url_for('static',filename='messages.css') }} />
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    </head>
+    <body class="container">
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        {% if show %}
+        {% if exists %} 
+        <div class="alert alert-success">The name exists ! </div>
+        {% endif %}
+        {% endif %}
+        <div class="row">
+            <form action="/messages" method="post" name="nameSearch">
+                <div class="form-group">
+                    <label for="name">Search a name:</label>
+                    <input type="name" name="name" class="form-control" id="name" placeholder="Search a name">
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+             <div class="row" >
+            {% if messages %}
+            {% for row in messages %}
+            <div class="col-sm-6">
+                <div id="tb-testimonial" class="testimonial testimonial-default">
+                    <div class="testimonial-section">
+                        {{ row[1] }}
+                    </div>
+            <div class="testimonial-desc">
+                <img src="https://placeholdit.imgix.net/~text?txtsize=9&txt=100%C3%97100&w=100&h=100" alt="" />
+                <div class="testimonial-writer">
+                    <div class="testimonial-writer-name">{{ row[0] }}</div>
+                </div>
+            </div>
+                </div>   
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+ 
+    </div>
+</div>
+      </body>
+</html>
